@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/alameedi/Github/iLog/build",
+  "command": "/usr/bin/cc  -I/home/alameedi/Github/iLog/src/include -g -std=gnu11 -o CMakeFiles/iLog.dir/src/main.c.o -c /home/alameedi/Github/iLog/src/main.c",
+  "file": "/home/alameedi/Github/iLog/src/main.c",
+  "output": "CMakeFiles/iLog.dir/src/main.c.o"
+}
+]
