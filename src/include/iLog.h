@@ -10,20 +10,18 @@
 
 typedef enum { INFO, WARNING, ERROR } level;
 
-#define INFO level.INFO
-#define WARN level.WARNING
-#define ERROR level.ERROR
+int is_msg(const char*);                       // This function take (char* message), and check the text message and return (1,0) true/false
 
-int is_msg(char*);                // This function take (char* message), and check the text message and return (1,0) true/false
+int size(const char*);                         // This function take a (char* message), and return the length of the message.
 
-int size(char*);                  // This function take a (char* message), and return the length of the message.
+char* log_level(level);                  // This function return the log level (info, warn, error)
 
-const char* log_level(level);     // This function return the log level (info, warn, error)
+char* message_format(char*,level);       // This function for format the output message 
 
-void iLog(int, char*);            // This is the main log function that take (char* message), and (int size of message)
+void iLog(char*,level);                         // This is the main log function that take (char* message), and (int size of message)
 
 // Macro Define for log message to the user
 
-#define LOG (level) (message, ...) iLog(level, message)
+#define LOG(level,message) iLog(message,level)
 
 #endif  // _ILOG_H_

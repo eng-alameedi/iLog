@@ -6,7 +6,7 @@ project(iLOG_PROJECT
        )
 
 set(file_name iLog)
-set(file_path src/main.c)
+set(file_path src/lib/iLog.c src/main.c)
 
 include_directories(src/include)
 
