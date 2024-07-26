@@ -52,5 +52,7 @@ Mkfile.old
 dkms.conf
 
 # Remove local directories
-cache/
+.cache/
 build/
+test/
+debug/
