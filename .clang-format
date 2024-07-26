@@ -1,98 +1,56 @@
-# Use the Google style as the base.
+# Example .clang-format file
+
+# Set the base style to use. Options include:
+# LLVM, Google, Chromium, Microsoft, Mozilla, WebKit
 BasedOnStyle: Google
 
-# Additional customizations to the Google style.
-AccessModifierOffset: -2
-AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: false
-AlignConsecutiveDeclarations: false
-AlignEscapedNewlines: Left
-AlignOperands: true
+# Control the use of tabs and spaces for indentation
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Control the alignment of function declarations
 AlignTrailingComments: true
-AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: false
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Inline
-AllowShortIfStatementsOnASingleLine: false
-AllowShortLambdasOnASingleLine: false
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: Consecutive
+
+# Control the placement of braces
+BreakBeforeBraces: Allman
+
+# Control the column width where lines should be wrapped
+ColumnLimit: 100
+
+# Control the wrapping of function definitions and function calls
+AlwaysBreakAfterReturnType: TopLevel
+AlwaysBreakBeforeMultilineStrings: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
-AlwaysBreakAfterDefinitionReturnType: None
-AlwaysBreakAfterReturnType: None
-AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: No
-BinPackArguments: true
-BinPackParameters: true
-BraceWrapping:
-  AfterCaseLabel: false
-  AfterClass: false
-  AfterControlStatement: false
-  AfterEnum: false
-  AfterFunction: false
-  AfterNamespace: false
-  AfterObjCDeclaration: false
-  AfterStruct: false
-  AfterUnion: false
-  BeforeCatch: false
-  BeforeElse: false
-  BeforeLambdaBody: false
-  BeforeWhile: false
-  IndentBraces: false
-BreakBeforeBinaryOperators: None
-BreakBeforeBraces: Attach
-BreakBeforeTernaryOperators: true
-BreakConstructorInitializersBeforeComma: false
-ColumnLimit: 80
-CommentPragmas: '^ IWYU pragma:'
-CompactNamespaces: false
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
-ConstructorInitializerIndentWidth: 4
-ContinuationIndentWidth: 4
-Cpp11BracedListStyle: true
-DerivePointerAlignment: false
-DisableFormat: false
-EmptyLineBeforeAccessModifier: LogicalBlock
-FixNamespaceComments: true
-IncludeBlocks: Preserve
-IncludeCategories:
-  - Regex: '^<.*\.h>'
-    Priority: 1
-  - Regex: '.*'
-    Priority: 2
-IncludeIsMainRegex: '(Test)?$'
-IndentCaseLabels: false
-IndentPPDirectives: None
-IndentWidth: 2
-IndentWrappedFunctionNames: false
-KeepEmptyLinesAtTheStartOfBlocks: false
-Language: Cpp
-MacroBlockBegin: ''
-MacroBlockEnd: ''
-MaxEmptyLinesToKeep: 1
-NamespaceIndentation: None
-PenaltyBreakBeforeFirstCallParameter: 19
-PenaltyBreakComment: 300
-PenaltyBreakFirstLessLess: 120
-PenaltyBreakString: 1000
-PenaltyExcessCharacter: 1000000
-PenaltyReturnTypeOnItsOwnLine: 60
+
+# Control the formatting of preprocessor directives
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: true
+
+# Control the indentation of case labels in switch statements
+IndentCaseLabels: true
+
+# Control the wrapping of blocks and assignments
+BinPackArguments: false
+BinPackParameters: false
+BreakConstructorInitializersBeforeComma: true
+BreakConstructorInitializers: BeforeComma
+
+# Additional configurations for readability and style
 PointerAlignment: Left
 ReflowComments: true
 SortIncludes: true
-SpaceAfterCStyleCast: false
-SpaceAfterTemplateKeyword: true
-SpaceBeforeAssignmentOperators: true
-SpaceBeforeCpp11BracedList: false
-SpaceBeforeCtorInitializerColon: true
-SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements
-SpaceBeforeRangeBasedForLoopColon: true
-SpaceInEmptyBlock: false
-SpacesBeforeTrailingComments: 2
-SpacesInAngles: false
-SpacesInCStyleCastParentheses: false
-SpacesInContainerLiterals: false
+SpaceBeforeCpp11BracedList: true
 SpacesInParentheses: false
-SpacesInSquareBrackets: false
-Standard: Cpp23
-TabWidth: 2
-UseTab: Never
+SpacesInAngles: false
+
+# Control the placement of commas and semicolons
+TrailingComma: None
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Control the style of line comments
+CommentPragmas: "^ IWYU pragma:" # This preserves IWYU pragmas
