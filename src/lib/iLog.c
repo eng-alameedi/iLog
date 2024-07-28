@@ -55,7 +55,7 @@ char* log_level(level lv)
 void iLog(char *msg, level lv)
 {
   char* level = log_level(lv);
-  int buf = size(msg) + size(level) + 3;
+  int buf = size(msg) + size(level) + 5;
   char log_message[buf];
   int len =0;
   log_message[len] = '[';
@@ -68,6 +68,8 @@ void iLog(char *msg, level lv)
     }
   ++len;
   log_message[len] = ']';
+  ++len;
+  log_message[len] = ' ';
   i = 0;
   while(msg[i] !='\0')
     {

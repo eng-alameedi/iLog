@@ -2,6 +2,6 @@
 
 
 int main(void) {
-  LOG(INFO,"WELOCOME");
+  LOG(INFO,"Hello, World\n");
   return 0;
 }
