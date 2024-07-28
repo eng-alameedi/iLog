@@ -10,11 +10,11 @@
 #define _FILE_LOG_H_
 
 #define FILE_NAME "log.txt"
-#define FILE_PATH "/"
+#define FILE_PATH "/log/"
 
-void file_check();
+int file_check();
 
-void file_create();
+int file_create();
 
 void file_open();
 
