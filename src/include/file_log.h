@@ -9,6 +9,7 @@
 #ifndef _FILE_LOG_H_
 #define _FILE_LOG_H_
 
+#include <stdio.h>
 #define FILE_NAME "log.txt"    // default log file name
 #define FILE_PATH "log"      // default log file directory
 
@@ -20,7 +21,7 @@
  * @return the function return true (1) if file exist or false (0) if not.
  *
  */
-int file_check();
+int file_check(const char*);
 
 /**
  * @brief this function do the job of creation log file (log.txt) in the specific directory
@@ -31,8 +32,7 @@ int file_check();
  *
  * @return the function return true (1) if file creation done or false (0) if not.
  */
-//int file_create(const char*, const char*);
-int file_create();
+int file_create(const char*);
 
 /**
  * @brief this function open the file for (append)
@@ -42,7 +42,7 @@ int file_create();
  * @return the function will return nothing
  *
  */
-void file_open(const char*);
+FILE* file_open(const char*, const char*);
 
 /**
  * @brief this function will do the job of writing the log message to the file.
@@ -52,7 +52,7 @@ void file_open(const char*);
  * @return this function return nothing.
  *
  */
-void write_log(char*);
+void write_log(const char*);
 
 /**
  * @brief this function will do the job of closing the log.txt file before quite the program
@@ -62,6 +62,6 @@ void write_log(char*);
  * @return this function will return nothing
  *
  */
-void file_close(char*);
+void file_close(FILE*);
 
 #endif   // _FILE_LOG_H_
