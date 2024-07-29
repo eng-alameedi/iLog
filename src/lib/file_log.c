@@ -12,13 +12,14 @@
 #include <sys/stat.h>
 
 
-char* file_name()
+char* file_name()    // function that combine path+filename and return all
 {
   static char name[sizeof(FILE_PATH)+sizeof(FILE_NAME)+1];
   snprintf(name, sizeof(name), "%s/%s", FILE_PATH, FILE_NAME);
   return name;
 }
-int file_check()
+
+int file_check()    // function to check file status
 {
   char* fname = file_name();
    FILE *f_name;
@@ -31,8 +32,7 @@ int file_check()
   return 0;
 }
 
-
-int file_create()
+int file_create()     // function to create the log file
 {
   if(file_check())
     {
@@ -61,4 +61,28 @@ int file_create()
         }
     }
   return 1;
+}
+
+void file_open(const char* message)     // function to open the log file for add log message
+{
+  char* fname = file_name();
+  FILE* flog = fopen(fname,"a");
+  if(flog)
+    {
+      if(fprintf(flog,"%s\n",message) < 0)
+        {
+          perror("Error");
+          file_close();
+        }
+    }
+  else
+    perror("Error");
+}
+
+void file_close(FILE* flog)   // function to close the log file after append log message
+{
+  if(fclose(flog) != 0)
+    {
+      perror("Error");
+    }
 }
