@@ -10,17 +10,17 @@
 #define _FILE_LOG_H_
 
 #define FILE_NAME "log.txt"    // default log file name
-#define FILE_PATH "/log/"      // default log file directory
+#define FILE_PATH "log"      // default log file directory
 
 /**
  * @brief this function check the existence of the log.txt file
  *
- * @param1 the function take the string (char*) filename
+ * @param1 the function take no parameter.
  *
  * @return the function return true (1) if file exist or false (0) if not.
  *
  */
-int file_check(const char*);
+int file_check();
 
 /**
  * @brief this function do the job of creation log file (log.txt) in the specific directory
@@ -31,7 +31,8 @@ int file_check(const char*);
  *
  * @return the function return true (1) if file creation done or false (0) if not.
  */
-int file_create(const char*, const char*);
+//int file_create(const char*, const char*);
+int file_create();
 
 /**
  * @brief this function open the file for (append)
