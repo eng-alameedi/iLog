@@ -9,6 +9,7 @@
 #ifndef _FILE_LOG_H_
 #define _FILE_LOG_H_
 
+#include <stdio.h>
 #define FILE_NAME "log.txt"    // default log file name
 #define FILE_PATH "log"      // default log file directory
 
@@ -52,7 +53,7 @@ void file_open(const char*);
  * @return this function return nothing.
  *
  */
-void write_log(char*);
+void write_log(const char*);
 
 /**
  * @brief this function will do the job of closing the log.txt file before quite the program
@@ -62,6 +63,6 @@ void write_log(char*);
  * @return this function will return nothing
  *
  */
-void file_close(char*);
+void file_close(FILE*);
 
 #endif   // _FILE_LOG_H_
