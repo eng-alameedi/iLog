@@ -7,6 +7,7 @@
  */
 
 #include "iLog.h"
+#include "file_log.h"
 
 #include <unistd.h>
 
@@ -80,4 +81,7 @@ void iLog(char *msg, level lv)
   ++len;
   log_message[len] = '\0';
   write(STDOUT_FILENO, log_message, size(log_message));
+
+  // files open and write the log message then close it
+  write_log(log_message);
 }
