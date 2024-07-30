@@ -19,3 +19,6 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 add_executable(${file_name} ${file_path})
+
+add_library(log STATIC src/lib/iLog.c src/lib/file_log.c)
+target_include_directories(log PUBLIC ${CMAKE_SOURCE_DIR}/src/include)
