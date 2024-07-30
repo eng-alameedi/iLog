@@ -7,8 +7,6 @@
 //
 
 #include "file_log.h"
-#include "iLog.h"
-
 
 #include <stdio.h>
 #include <sys/stat.h>
@@ -85,6 +83,12 @@ void write_log(const char* message)
         }
       else
         perror("Error");
+    }
+  else if(file_check(fname))
+    {
+      FILE* f = file_open(fname, "a");
+      fprintf(f,"%s\n", message);
+      file_close(f);
     }
   else
     perror("Error");
