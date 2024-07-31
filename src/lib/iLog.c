@@ -53,7 +53,7 @@ char* log_level(level lv)
 }
 
 // this is the log function
-void iLog(char *msg, level lv)
+void iLog(const char *msg, level lv)
 {
   char* level = log_level(lv);
   int buf = size(msg) + size(level) + 5;
