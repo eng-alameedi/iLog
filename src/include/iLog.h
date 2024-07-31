@@ -35,7 +35,7 @@ char* log_level(level);
 
 char* message_format(char*,level);
 
-void iLog(char*,level);
+void iLog(const char*,level);
 
 // Macro Define for log message to the user
 
