@@ -5,7 +5,7 @@ project(iLOG_PROJECT
         LANGUAGES C
        )
 
-set(file_name iLog)
+set(file_name Log)
 set(file_path src/lib/iLog.c src/lib/file_log.c src/main.c)
 
 include_directories(src/include)
@@ -20,5 +20,5 @@ endif()
 
 add_executable(${file_name} ${file_path})
 
-add_library(log STATIC src/lib/iLog.c src/lib/file_log.c)
-target_include_directories(log PUBLIC ${CMAKE_SOURCE_DIR}/src/include)
+add_library(iLog STATIC src/lib/iLog.c src/lib/file_log.c)
+target_include_directories(iLog PUBLIC ${CMAKE_SOURCE_DIR}/src/include)
