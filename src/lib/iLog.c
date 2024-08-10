@@ -8,6 +8,7 @@
 
 #include "iLog.h"
 #include "file_log.h"
+#include "log_time.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -58,11 +59,13 @@ char* log_level(level lv)
 void iLog(const char *msg, level lv)
 {
   char* level = log_level(lv);
-  size_t buffer = size(msg) + size(level);
+  char* local_time = current_time();
+  size_t buffer = size(msg) + size(level) + size(local_time);
   char log_message[buffer];
 
   memcpy(log_message, level, size(level));
-  memcpy(log_message + size(level), msg, size(msg));
+  memcpy(log_message + size(level), local_time, size(local_time));
+  memcpy(log_message + size(level) + size(local_time), msg, size(msg));
   log_message[buffer] = '\0';
 
   write(STDOUT_FILENO, log_message, buffer);

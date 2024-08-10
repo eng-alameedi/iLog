@@ -6,7 +6,10 @@
 //
 
 #include "log_time.h"
+#include "iLog.h"
+
 #include <time.h>
+#include <string.h>
 
 char* current_time()
 {
@@ -16,6 +19,7 @@ char* current_time()
   char text_time[22];
   strftime(text_time, sizeof(text_time), "%Y-%m-%d %H:%M:%S ", local_time);
 
-  char* local = text_time;
+  char* local;
+  memcpy(local, text_time, size(text_time));
   return local;
 }
