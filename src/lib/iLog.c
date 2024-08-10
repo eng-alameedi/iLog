@@ -9,6 +9,8 @@
 #include "iLog.h"
 #include "file_log.h"
 
+#include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 
 // this is the check function of the message empty or not
@@ -38,16 +40,16 @@ char* log_level(level lv)
   char* msg;
   switch (lv) {
   case INFO:
-    msg = "INFO";
+    msg = "[INFO] ";
     break;
   case WARNING:
-    msg = "WARN";
+    msg = "[WARN] ";
     break;
   case ERROR:
-    msg = "ERROR";
+    msg = "[ERROR] ";
     break;
     default:
-      msg = "UNKNOWN";
+      msg = "[UNKNOWN] ";
       }
   return msg;
 }
@@ -56,31 +58,14 @@ char* log_level(level lv)
 void iLog(const char *msg, level lv)
 {
   char* level = log_level(lv);
-  int buf = size(msg) + size(level) + 5;
-  char log_message[buf];
-  int len =0;
-  log_message[len] = '[';
-  int i = 0;
-  while(level[i] != '\0')
-    {
-      ++len;
-      log_message[len] = level[i];
-      ++i;
-    }
-  ++len;
-  log_message[len] = ']';
-  ++len;
-  log_message[len] = ' ';
-  i = 0;
-  while(msg[i] !='\0')
-    {
-      ++len;
-      log_message[len] = msg[i];
-      ++i;
-    }
-  ++len;
-  log_message[len] = '\0';
-  write(STDOUT_FILENO, log_message, size(log_message));
+  size_t buffer = size(msg) + size(level);
+  char log_message[buffer];
+
+  memcpy(log_message, level, size(level));
+  memcpy(log_message + size(level), msg, size(msg));
+  log_message[buffer] = '\0';
+
+  write(STDOUT_FILENO, log_message, buffer);
 
   // files open and write the log message then close it
   write_log(log_message);
