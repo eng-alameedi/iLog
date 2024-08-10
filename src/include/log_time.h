@@ -11,10 +11,10 @@
 /**
  * @brief this function fetch the time, and date of the local timezone
  *
- * @param this function take no parameter.
+ * @param this function take a parameter of type char[22].
  *
- * @return this function return formatted time, and date as string of type char*
+ * @return this function return nothing (void), its just update the char* with current time.
  */
-char* current_time();
+void current_time(char c_time[22]);
 
 #endif    // _LOG_TIME_H_

@@ -59,7 +59,8 @@ char* log_level(level lv)
 void iLog(const char *msg, level lv)
 {
   char* level = log_level(lv);
-  char* local_time = current_time();
+  char local_time[22];
+  current_time(local_time);
   size_t buffer = size(msg) + size(level) + size(local_time);
   char log_message[buffer];
 
