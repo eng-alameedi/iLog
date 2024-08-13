@@ -20,5 +20,5 @@ endif()
 
 add_executable(${file_name} ${file_path})
 
-add_library(iLog STATIC src/lib/iLog.c src/lib/file_log.c)
+add_library(iLog STATIC src/lib/iLog.c src/lib/file_log.c src/lib/log_time.c)
 target_include_directories(iLog PUBLIC ${CMAKE_SOURCE_DIR}/src/include)
