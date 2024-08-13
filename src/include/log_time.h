@@ -15,6 +15,6 @@
  *
  * @return this function return nothing (void), its just update the char* with current time.
  */
-void current_time(char c_time[22]);
+void current_time(char*);
 
 #endif    // _LOG_TIME_H_
