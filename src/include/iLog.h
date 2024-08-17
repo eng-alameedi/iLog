@@ -1,3 +1,4 @@
+//
 // File: iLog.h
 //
 // this file contain the must basic function of
@@ -8,6 +9,10 @@
 
 #ifndef _I_LOG_H_
 #define _I_LOG_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef enum { INFO, WARNING, ERROR } level;      // this enum called level, contain the must log level to the user
 
@@ -53,5 +58,9 @@ void iLog(const char*,level);
  * @brief this is a macro to log a message from user, in format of LOG(level, message)
  */
 #define LOG(level,message) iLog(message,level)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  // _I_LOG_H_
