@@ -1,8 +1,10 @@
 //
 // File: log_time.h
 //
-// This file contain the main function that return the local current time, and date.
-// this function use the time.h functions and parameters to fetch the time, and date.
+// This file contain the main function that,
+// return the local current time, and date,
+// this function use the time.h functions,
+// and parameters to fetch the time, and date.
 //
 
 #ifndef _LOG_TIME_H_
