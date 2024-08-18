@@ -9,9 +9,9 @@
 #define _LOG_TIME_H_
 
 /**
- * @brief this function fetch the time, and date of the local timezone
+ * @brief this function fetch the current time, and date of the local timezone
  *
- * @param this function take a parameter of type char[22].
+ * @param this function take a parameter of type char* (pointer to char value).
  *
  * @return this function return nothing (void), its just update the char* with current time.
  */
