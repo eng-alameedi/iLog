@@ -10,13 +10,34 @@
 #ifndef _I_LOG_H_
 #define _I_LOG_H_
 
+/**
+ *
+ * @brief: this if block define the c++ function prototype.
+ *
+ */
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef enum { INFO, WARNING, ERROR } level;      // this enum called level, contain the must log level to the user
+/**
+ *
+ * @brief: this if block define true/false values, because c language don't have a bool value by default
+ *
+ */
+#ifndef True
+#define True (1==1)
+#define False (!True)
+#endif
 
 /**
+ *
+ * @brief: this type define, enumeration for log message level
+ *
+ */
+typedef enum { INFO, WARNING, ERROR } level;
+
+/**
+ *
  * @brief this function take a string text and check if it's valid.
  *
  * @param1 const char*: is a pointer (C-style string) contain the log message.

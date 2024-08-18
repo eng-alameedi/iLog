@@ -18,8 +18,8 @@
 int is_msg(const char *msg)
 {
   if(msg[0] == '\0')
-    return 0;
-  return 1;
+    return False;
+  return True;
 }
 
 // this is the length function of the log message.
