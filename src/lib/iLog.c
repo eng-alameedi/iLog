@@ -72,5 +72,6 @@ void iLog(const char *msg, level lv)
   write(STDOUT_FILENO, log_message, buffer);
 
   // files open and write the log message then close it
-  write_log(log_message);
+  if(lv == ERROR)
+    write_log(log_message);
 }
