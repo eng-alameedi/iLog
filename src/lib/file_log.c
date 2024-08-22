@@ -12,14 +12,16 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 
-char* file_name()    // function that combine path+filename and return all
+// <<<<<<<<<<====================>>>>>>>>>> (file_name): this function combine the file path + file name
+char* file_name()
 {
   static char name[sizeof(FILE_PATH)+sizeof(FILE_NAME)+1];
   snprintf(name, sizeof(name), "%s/%s", FILE_PATH, FILE_NAME);
   return name;
 }
 
-int file_check(const char* fname)    // function to check file status
+// <<<<<<<<<<====================>>>>>>>>>> (file_check): this function check the file exist.
+int file_check(const char* fname)
 {
   FILE* f_name = file_open(fname,"r");
   if(f_name)
@@ -30,7 +32,8 @@ int file_check(const char* fname)    // function to check file status
   return 0;
 }
 
-int file_create(const char* fname)     // function to create the log file
+// <<<<<<<<<<====================>>>>>>>>>> (file_create): this function create the file log.txt, if it's not found.
+int file_create(const char* fname)
 {
   if(mkdir(FILE_PATH, 0755) != 0)
     {
@@ -51,7 +54,8 @@ int file_create(const char* fname)     // function to create the log file
   return 1;
 }
 
-FILE* file_open(const char* fname, const char* mode)     // function to open the log file for add log message
+// <<<<<<<<<<====================>>>>>>>>>> (file_open): this function open the file to write the log message.
+FILE* file_open(const char* fname, const char* mode)
 {
   FILE* f = fopen(fname, mode);
   if(!f)
@@ -61,7 +65,8 @@ FILE* file_open(const char* fname, const char* mode)     // function to open the
   return f;
 }
 
-void file_close(FILE* flog)   // function to close the log file after append log message
+// <<<<<<<<<<====================>>>>>>>>>> (file_close): this function close the log file.
+void file_close(FILE* flog)
 {
   if(fclose(flog) != 0)
     {
@@ -70,6 +75,7 @@ void file_close(FILE* flog)   // function to close the log file after append log
     }
 }
 
+// <<<<<<<<<<====================>>>>>>>>>> (write_log): this function write the log message to the log.txt file
 void write_log(const char* message)
 {
   char* fname = file_name();
