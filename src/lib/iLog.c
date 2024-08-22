@@ -1,10 +1,12 @@
-/*
- * The file iLog.c is a main part
- * of the log message project with c
- * it has the implementation of the
- * main function that formed the total
- * project.
- */
+//
+// File: iLog.c
+//
+// this a main part of the log message project
+// written with c language, it has the core,
+// implementation of the log message function
+// that displayed to the user console, and to
+// a log text file with time and date.
+//
 
 #include "iLog.h"
 #include "file_log.h"
@@ -14,7 +16,7 @@
 #include <string.h>
 #include <unistd.h>
 
-// this is the check function of the message empty or not
+// <<<<<<<<<==========================>>>>>>>>> (is_msg): this function check log message.
 int is_msg(const char *msg)
 {
   if(msg[0] == '\0')
@@ -22,7 +24,7 @@ int is_msg(const char *msg)
   return True;
 }
 
-// this is the length function of the log message.
+// <<<<<<<<<==========================>>>>>>>>> (size): this function count the length of log message.
 int size(const char *msg)
 {
   if(is_msg(msg))
@@ -35,7 +37,7 @@ int size(const char *msg)
   return 0;
 }
 
-// this is the log level choice function
+// <<<<<<<<<==========================>>>>>>>>> (log_level): this function change log level to string.
 char* log_level(level lv)
 {
   char* msg;
@@ -55,7 +57,7 @@ char* log_level(level lv)
   return msg;
 }
 
-// this is the log function
+// <<<<<<<<<==========================>>>>>>>>> (iLog): this function log message to console, and to a log file 
 void iLog(const char *msg, level lv)
 {
   char* level = log_level(lv);
@@ -72,6 +74,6 @@ void iLog(const char *msg, level lv)
   write(STDOUT_FILENO, log_message, buffer);
 
   // files open and write the log message then close it
-  if(lv == ERROR)
+  if(lv != INFO)
     write_log(log_message);
 }
