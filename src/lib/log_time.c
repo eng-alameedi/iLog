@@ -10,6 +10,7 @@
 #include <time.h>
 #include <string.h>
 
+// <<<<<<<<<<====================>>>>>>>>> (current_time): this function get the current time, and formatted as s text.
 void current_time(char* c_time)
 {
   size_t index = 22;
