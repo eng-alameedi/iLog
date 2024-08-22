@@ -15,10 +15,14 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug)
+  set(CMAKE_BUILD_TYPE Release)
 endif()
 
 add_executable(${file_name} ${file_path})
 
 add_library(iLog STATIC src/lib/iLog.c src/lib/file_log.c src/lib/log_time.c)
 target_include_directories(iLog PUBLIC ${CMAKE_SOURCE_DIR}/src/include)
+
+if(CMAKE_BUILD_TYPE MATCHES Release)
+  target_compile_options(${file_name} INTERFACE -03 -DNDEBUG)
+endif()
